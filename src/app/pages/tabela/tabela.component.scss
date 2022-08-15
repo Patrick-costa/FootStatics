@@ -1,0 +1,109 @@
+:host {
+    display: flex;
+    height: 100vh;
+
+    ::-webkit-scrollbar{
+        width: 7px;
+        &-thumb{
+            background-color: #424242;
+            border-radius: 15px;
+            border: 6px solid transparent;
+          
+        }
+
+        &-track{
+            background: transparent;
+        }
+    }
+
+    .container {
+        width: calc(100vw - 250px);
+        padding: 10px 40px 10px 40px;
+        overflow-y: auto;
+        .tabela {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+ 
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 0;
+                height: 100%;
+                font-size: .9rem;
+                thead{
+                    th{
+                        padding-bottom: 10px;
+                    }
+                }
+                td {
+                    padding: 10px 0px 10px 0px;
+          
+                    font-weight: 400;
+                    font-size: .8rem;
+                    color: #00000095;
+
+                    img{
+                        width: 20px;
+                    }
+
+                    &:nth-child(1) {
+                        border-top-left-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                        padding: 1px 1px 1px 1px;
+                        font-weight: 600;
+
+                    }
+
+                }
+
+                td:nth-last-child(1){
+          
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+
+                    padding: 1px 1px 1px 1px;
+      
+                }
+                
+                tr:nth-child(odd) {
+        
+                    background: #ececec;
+                    border-radius: 10px;
+                    margin: 0;
+                }
+
+            }
+        }
+    }
+}
+
+.centralizar{
+
+    align-items: center;
+}
+
+
+.empate{
+    background-color: #20202040;
+    width: 7px;
+    height: 7px;
+    margin-left: 5px;
+    border-radius: 50%;
+}
+
+.derrota{
+    background-color: red;
+    width: 7px;
+    height: 7px;
+    margin-left: 5px;
+    border-radius: 50%;
+}
+
+.vitoria{
+    background-color: green;
+    width: 7px;
+    height: 7px;
+    margin-left: 5px;
+    border-radius: 50%;
+}

@@ -1,0 +1,48 @@
+// @keyframes pulse {
+//     0% {
+//       border: 0px solid #00EB50;
+//       border-radius: 10px;
+//     }
+//     100% {
+//         border: 10px solid #00EB50;
+//         border-radius: 10px;
+//     }
+//   }
+
+.card{
+    background: #FFF;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px #00000015;
+    height: 150px;
+    width: 30vw;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    margin-left: 20px;
+    // animation: pulse 2s infinite ;
+    cursor: pointer;
+    .logo{
+        width: 29%;
+        align-items: center;
+        justify-content: center;
+        .escudo{
+            width: 80px 
+   
+        }
+    }
+    .texto{
+        width: 69%;
+        align-items: flex-start;
+        justify-content: center;
+        text-align: left;
+        flex-direction: column;
+        font-size: .8rem;
+
+        span{
+            margin-bottom: .5rem;
+            margin-left: .8rem;
+            font-weight: 600;
+        }
+    }
+
+}

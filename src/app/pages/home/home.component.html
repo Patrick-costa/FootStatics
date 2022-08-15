@@ -1,0 +1,10 @@
+<app-painel-esquerdo></app-painel-esquerdo>
+
+<div class="container">
+    <h1>Escolha o campeonato</h1>
+    <div class="pagina flex">
+        <app-card-campeonato *ngFor="let campeonato of campeonatos" [imagemUrl]="campeonato.imagemUrl"
+            [nome]="campeonato.edicao.nome"
+            (click)="escolherCampeonato(campeonato.id, campeonato.nomeAbreviado, campeonato.rodada)"></app-card-campeonato>
+    </div>
+</div>

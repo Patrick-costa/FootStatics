@@ -1,0 +1,44 @@
+<app-painel-esquerdo></app-painel-esquerdo>
+
+
+<div class="container">
+    <h1>Tabela</h1>
+    <div class="tabela">
+        <table>
+            <thead>
+                <tr style="background: #fff; padding-bottom: 2em;">
+                    <th class="w-5"></th>
+                    <th class="w-20 left">Times</th>
+                    <th class="w-5 center">Pontos</th>
+                    <th class="w-5 center">Partidas</th>
+                    <th class="w-5 center">Vitórias</th>
+                    <th class="w-5 center">Empates</th>
+                    <th class="w-5 center">Derrotas</th>
+                    <th class="w-5 center">GP</th>
+                    <th class="w-5 center">GC</th>
+                    <th class="w-5 center">SG</th>
+                    <th class="w-5 center">%</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let dados of tabela">
+                    <td class="center">
+                        <span class="preto">{{dados.posicao}}°</span>
+                    </td>
+                    <td class="flex centralizar "><img src="{{dados.time.escudo}}">&nbsp;&nbsp;<span class="weight">{{
+                            dados.time.nome_popular }}</span></td>
+                    <td class="center"><span>{{ dados.pontos }}</span></td>
+                    <td class="center"><span>{{dados.vitorias + dados.empates + dados.derrotas}}</span></td>
+                    <td class="center"><span class="verde">{{ dados.vitorias}}</span></td>
+                    <td class="center"><span class="weight">{{ dados.empates }}</span></td>
+                    <td class="center"><span class="vermelho">{{ dados.derrotas }}</span></td>
+                    <td class="center"><span>{{ dados.gols_pro }}</span></td>
+                    <td class="center"><span>{{ dados.gols_contra }}</span></td>
+                    <td class="center"><span>{{ dados.saldo_gols }}</span></td>
+                    <td class="center"><span>{{ dados.aproveitamento }}%</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

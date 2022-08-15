@@ -1,0 +1,38 @@
+:host{
+    display: block;
+    width: 100%;
+
+    button{
+        width: 100%;
+        border: 0;
+        padding: 15px 0px 15px 20px;
+        text-align: left;
+        font-weight: 400;
+        font-size: .8rem;
+        display: flex;
+        align-items: center;
+
+        span{
+            display: inline-block;
+            vertical-align: middle;
+            width: 150px;
+            white-space: nowrap;
+            margin-left: 15px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        color: #fff;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover{
+            background: #302f2f;
+            border-left: 3px solid #00EB50;
+        }
+        &.selecionado{
+            background: #302f2f;
+            border-left: 3px solid #00EB50;
+        }
+    }
+
+}

@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto+Slab:wght@900&display=swap");
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f1f4f5;
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+
+    &-center {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.w {
+    @for $i from 1 to 10 {
+        $width: $i * 5;
+
+        &-#{ $width } {
+            width: #{$width * 1%};
+        }
+    }
+}
+
+.left{
+    text-align: left;
+}
+
+.center{
+    text-align: center;
+}
+
+.right{
+    text-align: right;
+}
+
+.weight{
+    font-weight: 600;
+}
+
+.preto{
+    color: #000;
+}
+
+.verde{
+    color: #00c056;
+    font-weight: 600;
+}
+
+.vermelho{
+    color: #b8312f;
+    font-weight: 600;
+}
