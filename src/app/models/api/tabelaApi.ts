@@ -1,4 +1,4 @@
-export interface tabelaApi {
+export interface TabelaApi {
     posicao: number,
     pontos: number,
     time: {

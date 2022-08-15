@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Campeonato } from '../models/campeonato';
-import { campeonatoApi } from '../models/api/campeonatoApi';
-import { tabelaApi } from '../models/api/tabelaApi';
+import { CampeonatoApi } from '../models/api/campeonatoApi';
+import { TabelaApi } from '../models/api/tabelaApi';
+import { ArtilhariaApi } from '../models/api/artilhariaApi';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class CampeonatoService {
   constructor(private httpClient: HttpClient) { }
 
   carregarCampeonatos(){
-    return this.httpClient.get<campeonatoApi[]>(`${environment.url}/campeonatos`)
+    return this.httpClient.get<CampeonatoApi[]>(`${environment.url}/campeonatos`)
   }
 
   carregarTabela(id: number){
-    return this.httpClient.get<tabelaApi[]>(`${environment.url}/campeonatos/${id}/tabela`)
+    return this.httpClient.get<TabelaApi[]>(`${environment.url}/campeonatos/${id}/tabela`)
   }
 
   carregarPartidas(idCampeonato: number, idRodada: number){
@@ -26,5 +27,9 @@ export class CampeonatoService {
 
   carregarPartidasAoVivo(){
     return this.httpClient.get<[]>(`${environment.url}/ao-vivo`)
+  }
+
+  carregarArtilharia(id: number){
+    return this.httpClient.get<ArtilhariaApi[]>(`${environment.url}/campeonatos/${id}/artilharia`)
   }
 }

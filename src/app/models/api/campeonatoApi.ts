@@ -1,4 +1,4 @@
-export interface campeonatoApi {
+export interface CampeonatoApi {
     campeonato_id: number,
     edicao_atual: {
         edicao_id: number,

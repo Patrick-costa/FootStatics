@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tabelaApi } from 'src/app/models/api/tabelaApi';
+import { TabelaApi } from 'src/app/models/api/tabelaApi';
 import { CampeonatoService } from 'src/app/services/campeonato-service.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class TabelaComponent implements OnInit {
   }
 
   id!: number;
-  tabela!: tabelaApi[];
+  tabela!: TabelaApi[];
 
   capturarIdCampeonato(){
     let local = JSON.parse(localStorage.getItem('id') || '{}');

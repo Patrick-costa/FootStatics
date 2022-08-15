@@ -1,7 +1,7 @@
 import { Campeonato } from "../models/campeonato";
-import { campeonatoApi } from "../models/api/campeonatoApi";
+import { CampeonatoApi } from "../models/api/campeonatoApi";
 
-export function CampeonatoParaCampeonato(campeonato: campeonatoApi): Campeonato{
+export function CampeonatoParaCampeonato(campeonato: CampeonatoApi): Campeonato{
     
     let rodada;
 
