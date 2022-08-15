@@ -13,6 +13,7 @@ import { TabelaComponent } from './pages/tabela/tabela.component';
 import { PartidasComponent } from './pages/partidas/partidas.component';
 import { PainelJogosComponent } from './components/painel-jogos/painel-jogos.component';
 import { AoVivoComponent } from './pages/ao-vivo/ao-vivo.component';
+import { ArtilhariaComponent } from './pages/artilharia/artilharia.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AoVivoComponent } from './pages/ao-vivo/ao-vivo.component';
     TabelaComponent,
     PartidasComponent,
     PainelJogosComponent,
-    AoVivoComponent
+    AoVivoComponent,
+    ArtilhariaComponent
   ],
   imports: [
     BrowserModule,

@@ -25,14 +25,6 @@
         background-color: transparent;
         cursor: pointer;
 
-        &:hover{
-            background: #302f2f;
-            border-left: 3px solid #00EB50;
-        }
-        &.selecionado{
-            background: #302f2f;
-            border-left: 3px solid #00EB50;
-        }
     }
 
 }

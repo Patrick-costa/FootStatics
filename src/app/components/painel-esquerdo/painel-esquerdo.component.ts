@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-painel-esquerdo',
@@ -7,13 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PainelEsquerdoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.capturarNomeCampeonato();
+    this.capturarComponent();
   }
 
   campeonato!: string;
+
+  rota: any;
+
+  capturarComponent(){
+    this.rota = this.activatedRoute.component.name;
+    console.log(this.rota)
+  }
+
 
   capturarNomeCampeonato() {
     let storage = localStorage.getItem('campeonato');
