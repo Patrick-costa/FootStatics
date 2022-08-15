@@ -23,4 +23,8 @@ export class CampeonatoService {
   carregarPartidas(idCampeonato: number, idRodada: number){
     return this.httpClient.get<[]>(`${environment.url}/campeonatos/${idCampeonato}/rodadas/${idRodada}`)
   }
+
+  carregarPartidasAoVivo(){
+    return this.httpClient.get<[]>(`${environment.url}/ao-vivo`)
+  }
 }

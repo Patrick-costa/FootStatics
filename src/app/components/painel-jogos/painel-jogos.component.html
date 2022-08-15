@@ -1,0 +1,33 @@
+<div class="card" [class.animacao]="aovivo == true">
+
+    <div class="container-topo">
+        <div class="div">
+            <h4>{{nomeCampeonato}}</h4>
+            <div class="data">
+                {{data}} - {{hora}}
+            </div>
+        </div>
+        <div class="aovivo" *ngIf="aovivo">
+            <small>Ao Vivo</small>
+        </div>
+    </div>
+
+
+    <div class="jogo flex">
+        <img [src]="escudoMandante">
+        <span class='abreviacao'>{{abreviacaoMandante}}</span>
+        <span class="placar">{{placarMandante}}</span>
+        <span class="placar">x</span>
+        <span class="placar">{{placarVisitante}}</span>
+        <span class='abreviacao'>{{abreviacaoVisitante}}</span>
+        <img [src]="escudoVisitante">
+    </div>
+
+    <div class="status flex">
+        <span>{{status}}</span>
+    </div>
+
+    <div class="rodada flex" *ngIf="rodada">
+        <span>{{rodada}}</span>
+    </div>
+</div>

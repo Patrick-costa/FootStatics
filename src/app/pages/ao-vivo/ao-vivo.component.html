@@ -2,9 +2,9 @@
 
 
 <div class="pagina">
-    <h1>Jogos da Rodada</h1>
-    <div class="jogos">
-        <app-painel-jogos *ngFor="let partida of partidas.partidas"
+    <h1>Partidas ao vivo</h1>
+    <div class="jogos" *ngIf="partidas.length != 0">
+        <app-painel-jogos *ngFor="let partida of partidas"
         [nomeCampeonato]="partida.campeonato.nome"
         [data]="partida.data_realizacao"
         [hora]="partida.hora_realizacao"
@@ -13,10 +13,10 @@
         [escudoMandante]="partida.time_mandante.escudo"
         [escudoVisitante]="partida.time_visitante.escudo"
         [status]="partida.status"
-        [rodada]="rodada"
         [placarMandante]="partida.placar_mandante"
         [placarVisitante]="partida.placar_visitante"
+        [aovivo]="true"
         ></app-painel-jogos>
     </div>
-
+    <h5 *ngIf="partidas.length == 0">{{ aviso }}</h5>
 </div>

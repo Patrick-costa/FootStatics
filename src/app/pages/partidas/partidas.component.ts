@@ -14,6 +14,9 @@ export class PartidasComponent implements OnInit {
     this.carregarPartidas();
   }
 
+  partidas:any = [];
+  rodada: string;
+
   carregarPartidas() {
     let id = JSON.parse(localStorage.getItem('id') || '{}');
     id = parseInt(id);
@@ -22,6 +25,8 @@ export class PartidasComponent implements OnInit {
 
     this.campeonatoService.carregarPartidas(id, rodada).subscribe({
       next: (res) => {
+        this.partidas = res;
+        this.rodada = this.partidas.nome;
         console.log(res);
       },
       error: (er) => {

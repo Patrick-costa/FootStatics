@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { TabelaComponent } from './pages/tabela/tabela.component';
 import { PartidasComponent } from './pages/partidas/partidas.component';
+import { PainelJogosComponent } from './components/painel-jogos/painel-jogos.component';
+import { AoVivoComponent } from './pages/ao-vivo/ao-vivo.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PartidasComponent } from './pages/partidas/partidas.component';
     BotaoMenuComponent,
     CardCampeonatoComponent,
     TabelaComponent,
-    PartidasComponent
+    PartidasComponent,
+    PainelJogosComponent,
+    AoVivoComponent
   ],
   imports: [
     BrowserModule,

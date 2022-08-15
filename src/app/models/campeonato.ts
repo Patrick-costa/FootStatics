@@ -7,5 +7,5 @@ export interface Campeonato {
     },
     nomeAbreviado: string,
     imagemUrl: string,
-    rodada:number
+    rodada:any
 }

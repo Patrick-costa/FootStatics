@@ -1,0 +1,111 @@
+@keyframes pulse{
+    0% {
+        box-shadow: 0 0 0 0 rgb(184 49 47 / 40%);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgb(184 49 47 / 0%);
+    }
+ 
+    100% {
+        box-shadow: 0 0 0 0 rgb(184 49 47 / 0%);
+    }
+}
+
+.animacao{
+    animation: pulse 2s infinite;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: pulse;
+}
+
+.card{
+    min-height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 10px 2px #00000020;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 5px #00000020;
+
+    .container-topo{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .aovivo{
+             width: 80px;
+             height: 30px;
+             color: #fff;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             border-radius: 5px;
+             font-size: .9rem;
+             background-color: rgb(161, 0, 0);
+         }
+     
+         h4{
+             text-transform: uppercase;
+         }
+     
+         .data{
+             font-size: .8rem;
+         }
+    }
+
+    .jogo{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 20px 0px 20px;
+        margin-top: 10px;
+        img{
+            width: 40px;
+            height: 40px;
+        }
+
+        span.abreviacao{
+            margin: 10px;
+            font-weight: bold;
+            color: #c9c9c9;
+            font-size: 1.1rem;
+        }
+        
+        span.placar{
+            margin: 10px;
+            font-weight: bold;
+            color: #202020;
+            font-size: 2rem;
+        }
+    }
+
+    .status{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-transform: capitalize;
+        span{
+            margin-bottom: 40px;
+            font-size: .7rem;
+            color: #202020;
+        }
+    }
+
+    .rodada{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-transform: capitalize;
+
+        span{
+            margin-bottom: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #202020;
+        }
+    }
+}

@@ -3,6 +3,14 @@ import { campeonatoApi } from "../models/api/campeonatoApi";
 
 export function CampeonatoParaCampeonato(campeonato: campeonatoApi): Campeonato{
     
+    let rodada;
+
+    if(campeonato.rodada_atual){
+        rodada = campeonato.rodada_atual.rodada;
+    } else{
+        rodada = '';
+    }
+
     return {
         id: campeonato.campeonato_id,
         edicao: {
@@ -12,6 +20,6 @@ export function CampeonatoParaCampeonato(campeonato: campeonatoApi): Campeonato{
         },
         nomeAbreviado: campeonato.nome_popular,
         imagemUrl: campeonato.logo,
-        rodada: campeonato.rodada_atual.rodada
+        rodada: rodada
     }
 }
