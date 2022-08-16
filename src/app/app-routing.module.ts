@@ -5,6 +5,7 @@ import { AoVivoComponent } from './pages/ao-vivo/ao-vivo.component';
 import { ArtilhariaComponent } from './pages/artilharia/artilharia.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PartidasComponent } from './pages/partidas/partidas.component';
+import { RodadasAnterioresComponent } from './pages/rodadas-anteriores/rodadas-anteriores.component';
 import { TabelaComponent } from './pages/tabela/tabela.component';
 
 const routes: Routes = [
@@ -34,6 +35,11 @@ const routes: Routes = [
   {
     path: 'artilharia',
     component: ArtilhariaComponent,
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'rodadas-anteriores',
+    component: RodadasAnterioresComponent,
     canLoad: [AuthGuard]
   }
 ];

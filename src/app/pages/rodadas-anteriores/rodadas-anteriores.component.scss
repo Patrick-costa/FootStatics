@@ -1,0 +1,27 @@
+:host{
+    display: flex;
+
+    .pagina{
+        padding: 10px 20px;
+        height: 100vh;
+        overflow-y: auto;
+        width: calc(100% - 250px);
+        
+        .jogos {
+            width: 100%;
+            padding: 0px 0px 10px 0px;
+            display: grid;
+            grid-gap: 30px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-rows: minmax(min-content, max-content);
+
+            @media screen and (max-width: 1550px) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media screen and (max-width: 1130px) {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

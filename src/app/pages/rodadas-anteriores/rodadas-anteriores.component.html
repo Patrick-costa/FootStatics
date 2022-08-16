@@ -1,0 +1,21 @@
+<app-painel-esquerdo></app-painel-esquerdo>
+
+<div class="pagina">
+    <h1>Confira as rodadas do campeonato</h1>
+
+    <div class="jogos" *ngIf="partidas">
+        <app-painel-jogos *ngFor="let partida of partidas"
+        [nomeCampeonato]="campeonato"
+        [rodada]="rodada"
+        [data]="partida.data_realizacao" [hora]="partida.hora_realizacao"
+        [abreviacaoMandante]="partida.time_mandante.sigla" [abreviacaoVisitante]="partida.time_visitante.sigla"
+        [escudoMandante]="partida.time_mandante.escudo" [escudoVisitante]="partida.time_visitante.escudo"
+        [status]="partida.status" [placarMandante]="partida.placar_mandante"
+        [placarVisitante]="partida.placar_visitante"></app-painel-jogos>
+        
+        <br><br>
+    </div>
+
+    <h5 *ngIf="!partidas">{{ aviso }}</h5>
+</div>
+

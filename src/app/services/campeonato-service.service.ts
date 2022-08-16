@@ -32,4 +32,8 @@ export class CampeonatoService {
   carregarArtilharia(id: number){
     return this.httpClient.get<ArtilhariaApi[]>(`${environment.url}/campeonatos/${id}/artilharia`)
   }
+
+  carregarPartidasAnteriores(id: number){
+    return this.httpClient.get<[]>(`${environment.url}/campeonatos/${id}/partidas`)
+  }
 }

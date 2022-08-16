@@ -16,6 +16,7 @@ import { AoVivoComponent } from './pages/ao-vivo/ao-vivo.component';
 import { ArtilhariaComponent } from './pages/artilharia/artilharia.component';
 import { MaterialDesignModule } from './share/material-design/material-design.module';
 import { PipeArtilhariaPipe } from './pipes/pipe-artilharia.pipe';
+import { RodadasAnterioresComponent } from './pages/rodadas-anteriores/rodadas-anteriores.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PipeArtilhariaPipe } from './pipes/pipe-artilharia.pipe';
     PainelJogosComponent,
     AoVivoComponent,
     ArtilhariaComponent,
-    PipeArtilhariaPipe
+    PipeArtilhariaPipe,
+    RodadasAnterioresComponent
   ],
   imports: [
     BrowserModule,
