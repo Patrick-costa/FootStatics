@@ -15,7 +15,7 @@ import { PainelJogosComponent } from './components/painel-jogos/painel-jogos.com
 import { AoVivoComponent } from './pages/ao-vivo/ao-vivo.component';
 import { ArtilhariaComponent } from './pages/artilharia/artilharia.component';
 import { MaterialDesignModule } from './share/material-design/material-design.module';
-import { PipeArtilhariaPipe } from './pipe-artilharia.pipe';
+import { PipeArtilhariaPipe } from './pipes/pipe-artilharia.pipe';
 
 @NgModule({
   declarations: [
