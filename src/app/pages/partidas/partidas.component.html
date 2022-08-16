@@ -4,19 +4,12 @@
 <div class="pagina">
     <h1>Jogos da Rodada</h1>
     <div class="jogos">
-        <app-painel-jogos *ngFor="let partida of partidas.partidas"
-        [nomeCampeonato]="partida.campeonato.nome"
-        [data]="partida.data_realizacao"
-        [hora]="partida.hora_realizacao"
-        [abreviacaoMandante]="partida.time_mandante.sigla"
-        [abreviacaoVisitante]="partida.time_visitante.sigla"
-        [escudoMandante]="partida.time_mandante.escudo"
-        [escudoVisitante]="partida.time_visitante.escudo"
-        [status]="partida.status"
-        [rodada]="rodada"
-        [placarMandante]="partida.placar_mandante"
-        [placarVisitante]="partida.placar_visitante"
-        ></app-painel-jogos>
+        <app-painel-jogos *ngFor="let partida of partidas.partidas" [nomeCampeonato]="partida.campeonato.nome"
+            [data]="partida.data_realizacao" [hora]="partida.hora_realizacao"
+            [abreviacaoMandante]="partida.time_mandante.sigla" [abreviacaoVisitante]="partida.time_visitante.sigla"
+            [escudoMandante]="partida.time_mandante.escudo" [escudoVisitante]="partida.time_visitante.escudo"
+            [status]="partida.status" [rodada]="rodada" [placarMandante]="partida.placar_mandante"
+            [placarVisitante]="partida.placar_visitante"></app-painel-jogos>
     </div>
-
+    <br><br>
 </div>

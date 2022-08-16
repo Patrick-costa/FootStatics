@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { AoVivoComponent } from './pages/ao-vivo/ao-vivo.component';
 import { ArtilhariaComponent } from './pages/artilharia/artilharia.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -9,27 +10,31 @@ import { TabelaComponent } from './pages/tabela/tabela.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'tabela',
-    component: TabelaComponent
-  },
-  {
-    path: 'partidas',
     component: PartidasComponent
   },
   {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'tabela',
+    component: TabelaComponent,
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'partidas',
+    component: PartidasComponent,
+    canLoad: [AuthGuard]
+  },
+  {
     path: 'ao-vivo',
-    component: AoVivoComponent
+    component: AoVivoComponent,
+    canLoad: [AuthGuard]
   },
   {
     path: 'artilharia',
-    component: ArtilhariaComponent
+    component: ArtilhariaComponent,
+    canLoad: [AuthGuard]
   }
 ];
 
@@ -38,3 +43,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+//  loadChildren: () => import('./pages/player/player.module').then(x => x.PlayerModule),

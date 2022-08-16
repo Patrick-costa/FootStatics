@@ -34,6 +34,5 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('id', id.toString());
     localStorage.setItem('campeonato', campeonato);
     localStorage.setItem('rodada', rodada.toString())
-    window.location.reload();
   }
 }

@@ -47,10 +47,19 @@
              font-size: .9rem;
              background-color: rgb(161, 0, 0);
          }
-     
-         h4{
-             text-transform: uppercase;
+
+         div{
+             h4{
+                 text-transform: uppercase;
+                 white-space: nowrap;
+                 text-overflow: ellipsis;
+                 overflow: hidden;
+    
+             }
+             width: 70%;
+             overflow: hidden;
          }
+     
      
          .data{
              font-size: .8rem;

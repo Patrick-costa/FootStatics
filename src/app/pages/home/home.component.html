@@ -5,7 +5,7 @@
     <div class="pagina">
         <app-card-campeonato *ngFor="let campeonato of campeonatos" [imagemUrl]="campeonato.imagemUrl"
             [nome]="campeonato.edicao.nome"
-            (click)="escolherCampeonato(campeonato.id, campeonato.nomeAbreviado, campeonato.rodada)"></app-card-campeonato>
+            (click)="escolherCampeonato(campeonato.id, campeonato.nomeAbreviado, campeonato.rodada)" routerLink="/"></app-card-campeonato>
     </div>
     <br><br>
 </div>
