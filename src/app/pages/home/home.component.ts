@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   carregarCampeonatos() {
     this.campeonatoService.carregarCampeonatos().subscribe(x => {
       this.campeonatos = x.map(y => CampeonatoParaCampeonato(y));
-      console.log(this.campeonatos)
     })
   }
 

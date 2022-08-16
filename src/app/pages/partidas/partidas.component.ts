@@ -27,7 +27,6 @@ export class PartidasComponent implements OnInit {
       next: (res) => {
         this.partidas = res;
         this.rodada = this.partidas.nome;
-        console.log(res);
       },
       error: (er) => {
         console.log(er);

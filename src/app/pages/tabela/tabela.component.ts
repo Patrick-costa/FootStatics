@@ -31,7 +31,6 @@ export class TabelaComponent implements OnInit {
     this.campeonatoService.carregarTabela(this.id).subscribe({
       next: (res) => {
         this.tabela = res;
-        console.log(res);
       },
       error: (er) => {
         console.log(er);

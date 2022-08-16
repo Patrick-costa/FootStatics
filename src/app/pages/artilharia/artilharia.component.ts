@@ -25,7 +25,6 @@ export class ArtilhariaComponent implements OnInit {
 
     this.campeonatoService.carregarArtilharia(id).subscribe({
       next: (res) => {
-        console.log(res);
         this.artilharia = res;
       },
       error: (er) => {

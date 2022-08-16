@@ -28,8 +28,6 @@ export class AoVivoComponent implements OnInit {
     this.campeonatoService.carregarPartidasAoVivo().subscribe({
       next: (res) => {
         this.partidas = res;
-
-        console.log(res);
       },
       error: (er) => {
         console.log(er);

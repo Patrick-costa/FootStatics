@@ -45,7 +45,7 @@ export class PainelEsquerdoComponent implements OnInit {
 
   capturarComponent() {
     this.rota = this.activatedRoute.component.name;
-    console.log(this.rota)
+
   }
 
 
