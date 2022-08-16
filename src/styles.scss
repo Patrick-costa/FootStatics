@@ -32,6 +32,10 @@ body {
     }
 }
 
+.w-2{
+    width: 2%;
+}
+
 .left{
     text-align: left;
 }
@@ -61,3 +65,7 @@ body {
     color: #b8312f;
     font-weight: 600;
 }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

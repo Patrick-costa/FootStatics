@@ -1,2 +1,44 @@
 <app-painel-esquerdo></app-painel-esquerdo>
 
+<div class="pagina">
+    <div class="texto-topo">
+        <h1>Artilharia</h1>
+        <span>Lista dos atuais artilheiros do campeonato</span>
+    </div>
+    <div class="pesquisa">
+        <input type="text" placeholder="Digite o nome do atleta" (input)="filtrar($event)">
+    </div>
+    <div class="artilharia">
+        <table>
+            <thead>
+                <tr style="background: #fff">
+                    <th class="w-5">
+                        
+                    </th>
+                    <th class="left">
+                        Jogadores
+                    </th>
+                    <th class="w-5 center">
+                       Gols
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let artilheiro of (artilharia | pipeArtilharia : filtro)">
+                    <td class="center">
+                        <img [src]="artilheiro.time.escudo" style='width: 40px;'>
+                    </td>
+                    <td>
+                        <div class="atleta">
+                            <span>{{artilheiro.atleta.nome_popular}}</span>
+                            <span>{{artilheiro.time.sigla}}</span>
+                        </div>
+                    </td>
+                    <td class="center">
+                        <span>{{artilheiro.gols}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

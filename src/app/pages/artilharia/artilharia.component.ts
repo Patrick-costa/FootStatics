@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArtilhariaApi } from 'src/app/models/api/artilhariaApi';
+import { CampeonatoService } from 'src/app/services/campeonato-service.service';
 
 @Component({
   selector: 'app-artilharia',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtilhariaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private campeonatoService: CampeonatoService) { }
 
   ngOnInit(): void {
+    this.carregarArtilharia();
+  }
+  
+  artilharia: ArtilhariaApi[] = [];
+  i: number;
+  filtro: string = '';
+
+  carregarArtilharia(){
+    let storage = localStorage.getItem('id');
+    let id = parseInt(storage);
+
+    this.campeonatoService.carregarArtilharia(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.artilharia = res;
+      },
+      error: (er) => {
+        console.log(er)
+      }
+    })
+    
+  }
+
+  filtrar(evt: any){
+    this.filtro = evt.srcElement.value;
   }
 
 }

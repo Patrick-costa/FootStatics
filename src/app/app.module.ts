@@ -14,6 +14,8 @@ import { PartidasComponent } from './pages/partidas/partidas.component';
 import { PainelJogosComponent } from './components/painel-jogos/painel-jogos.component';
 import { AoVivoComponent } from './pages/ao-vivo/ao-vivo.component';
 import { ArtilhariaComponent } from './pages/artilharia/artilharia.component';
+import { MaterialDesignModule } from './share/material-design/material-design.module';
+import { PipeArtilhariaPipe } from './pipe-artilharia.pipe';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { ArtilhariaComponent } from './pages/artilharia/artilharia.component';
     PartidasComponent,
     PainelJogosComponent,
     AoVivoComponent,
-    ArtilhariaComponent
+    ArtilhariaComponent,
+    PipeArtilhariaPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialDesignModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
