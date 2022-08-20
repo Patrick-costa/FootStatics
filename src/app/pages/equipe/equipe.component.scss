@@ -1,27 +1,10 @@
 :host {
     display: flex;
     min-height: 300px;
-
-    .pagina {
-        padding: 10px 30px;
-        height: 100vh;
-        overflow-y: auto;
-        width: calc(100vw - 250px);
-
-        .jogos {
-            width: 100%;
-            display: grid;
-            grid-gap: 30px;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-auto-rows: minmax(min-content, max-content);
-            padding: 10px;
-            @media screen and (max-width: 1550px) {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            @media screen and (max-width: 1130px) {
-                grid-template-columns: 1fr;
-            }
-        }
+    width: 100%;
+    .rotas-container{
+        display: block;
+        width: 100%;
+        height: 100%;
     }
 }

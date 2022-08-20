@@ -51,7 +51,17 @@ export class RodadasAnterioresComponent implements OnInit {
 
   carregarRodada(id:number){
     this.partidaSelecionada = this.partidas[id-1];
-  } 
+  }
+  
+  proximo(){
+    this.idRodada++;
+    this.carregarRodada(this.idRodada);
+  }
+
+  anterior(){
+    this.idRodada--;
+    this.carregarRodada(this.idRodada);
+  }
 
   carregarNumPartidas(){
     for(var i = 1; i < 39; i++){

@@ -6,11 +6,21 @@
         padding: 10px 20px;
         height: 100vh;
         overflow-y: auto;
-        width: calc(100% - 250px);
+        width: 100%;
         
         .filtro{
-            margin: 20px 0px 20px 0px;
-            width: 200px;
+            margin: 20px 0px 40px 0px;
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #202020;
+
+            svg{
+                cursor: pointer;
+            }
         }
         .jogos {
             width: 100%;
@@ -30,3 +40,4 @@
         }
     }
 }
+

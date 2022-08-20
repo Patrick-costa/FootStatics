@@ -21,34 +21,7 @@ export class EquipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.ActivatedRoute.snapshot.params['id'];
-    this.carregarProximasPartidas();
-    this.carregarPartidasAnteriores();
   }
 
-  carregarPartidasAnteriores(){
-    this.campeonatoService.carregarPartidasAnterioresEquipe(this.id).subscribe({
-      next: (res)=> {
-        res = Object.values(res);
-        this.partidasAnteriores = res;
-        console.log(this.partidasAnteriores)
-      },
-      error: (e) => {
-        console.log(e)
-      }
-    })
-  }
-
-  carregarProximasPartidas(){
-    this.campeonatoService.carregarProximasPartidas(this.id).subscribe({
-      next: (res) => {
-        res = Object.values(res);
-        this.proximasPartidas = res;
-        console.log(this.proximasPartidas)
-      },
-      error: (e) => {
-        console.log(e);
-      }
-    })
-  }
 
 }

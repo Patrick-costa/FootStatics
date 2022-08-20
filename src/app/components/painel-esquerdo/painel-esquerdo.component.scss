@@ -26,7 +26,7 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
     .mostrar-menu {
         position: relative;
         display: inline;
-        animation-duration: 1s;
+        animation-duration: 1;
         animation: moverMenu 1s;
         animation-name: moverMenu;
     }

@@ -1,13 +1,12 @@
 :host {
     display: flex;
     min-height: 300px;
-
+    width: 100%;
     .pagina {
         padding: 10px 30px;
         height: 100vh;
         overflow-y: auto;
-        width: calc(100vw - 250px);
-
+        width: 100%;
         .jogos {
             width: 100%;
             display: grid;
@@ -23,5 +22,44 @@
                 grid-template-columns: 1fr;
             }
         }
+    }
+}
+
+.botoes {
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button {
+        border-radius: 5px;
+        padding: 15px;
+        background-color: #fff;
+        border: none;
+        margin-right: 20px;
+        cursor: pointer;
+        box-shadow: 0px 0px 5px #00000020;
+
+        &:hover {
+            background-color: #00b33c;
+
+            span {
+                color: #fff;
+            }
+        }
+    }
+
+    span {
+        color: #202020;
+        font-size: .7rem;
+        font-weight: bold;
+    }
+}
+
+.selecionado {
+    background-color: #00b33c;
+
+    span {
+        color: #fff;
     }
 }

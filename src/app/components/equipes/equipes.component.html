@@ -1,5 +1,5 @@
 <div class="menu-equipes">
-    <div class="container" *ngFor="let time of tabela" [routerLink]="['equipe/proximas',time.time.time_id]">
+    <div class="container" *ngFor="let time of tabela" [routerLink]="['/equipe/proximas',time.time.time_id]" (click)="atualizar()">
         <div class="escudo">
             <img [src]="time.time.escudo">
         </div>

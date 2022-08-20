@@ -22,6 +22,12 @@ export class EquipesComponent implements OnInit {
   carregarStorage(){
     this.id = parseInt(JSON.parse(localStorage.getItem('id') || '{}'));
   }
+  
+  atualizar(){
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+  }
 
   carregarTabela(){
     this.campeonatoService.carregarTabela(this.id).subscribe({

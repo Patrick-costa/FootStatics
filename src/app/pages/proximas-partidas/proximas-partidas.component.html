@@ -1,15 +1,25 @@
 <div class="pagina">
-    <h1>Jogos da Rodada</h1>
-    <button [routerLink]="['/equipe/anteriores',id]"></button>
-    <div class="jogos"  *ngFor="let partida of proximasPartidas">
-        <app-painel-jogos *ngFor="let dados of partida" [nomeCampeonato]="dados.campeonato.nome"
+    <div class="botoes">
+        <div>
+            <button [routerLink]="['/equipe/anteriores',id]"><span>Partidas Anteriores</span></button>
+            <button [routerLink]="['/equipe/proximas',id]"><span>Proximas Partidas</span></button>
+        </div>
+    
+        <div>
+            <button (click)="filtro = ''" *ngIf="campeonatosTime.length > 1"><span>Todas as Competições</span></button>
+            <button *ngFor="let competicoes of campeonatosTime" (click)="filtro = competicoes"><span>{{converterNomes(competicoes)}}</span></button>
+        </div>
+    </div>
+    
+    <div class="jogos" *ngFor="let partida of proximasPartidas">
+        <app-painel-jogos *ngFor="let dados of (partida | partidas : filtro)" [nomeCampeonato]="dados.campeonato.nome"
             [data]="dados.data_realizacao" [hora]="dados.hora_realizacao"
             [abreviacaoMandante]="dados.time_mandante.sigla" [abreviacaoVisitante]="dados.time_visitante.sigla"
             [escudoMandante]="dados.time_mandante.escudo" [escudoVisitante]="dados.time_visitante.escudo"
-            [status]="dados.status" [placarMandante]="dados.placar_mandante"
-            [placarVisitante]="dados.placar_visitante">
+            [status]="dados.status" [placarMandante]="dados.placar_mandante" [placarVisitante]="dados.placar_visitante">
 
         </app-painel-jogos>
     </div>
+
     <br><br>
 </div>
