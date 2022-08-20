@@ -17,6 +17,12 @@ import { ArtilhariaComponent } from './pages/artilharia/artilharia.component';
 import { MaterialDesignModule } from './share/material-design/material-design.module';
 import { PipeArtilhariaPipe } from './pipes/pipe-artilharia.pipe';
 import { RodadasAnterioresComponent } from './pages/rodadas-anteriores/rodadas-anteriores.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EquipesComponent } from './components/equipes/equipes.component';
+import { EquipeComponent } from './pages/equipe/equipe.component';
+import { ProximasPartidasComponent } from './pages/proximas-partidas/proximas-partidas.component';
+import { PartidasAnterioresComponent } from './pages/partidas-anteriores/partidas-anteriores.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +37,19 @@ import { RodadasAnterioresComponent } from './pages/rodadas-anteriores/rodadas-a
     AoVivoComponent,
     ArtilhariaComponent,
     PipeArtilhariaPipe,
-    RodadasAnterioresComponent
+    RodadasAnterioresComponent,
+    EquipesComponent,
+    EquipeComponent,
+    ProximasPartidasComponent,
+    PartidasAnterioresComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialDesignModule
+    BrowserAnimationsModule,
+    MaterialDesignModule,
+    FormsModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

@@ -1,0 +1,66 @@
+:host{
+    height: 100vh;
+    width: 100px;
+    ::-webkit-scrollbar{
+        width: 7px;
+        &-thumb{
+            background-color: #424242;
+            border-radius: 15px;
+            border: 6px solid transparent;
+          
+        }
+
+        &-track{
+            background: transparent;
+        }
+    }
+
+    .menu-equipes{
+        height: 100%;
+        background-color: #1a1a1a;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        overflow-y: auto;
+    
+        .container{
+            padding: 10px 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: .7;
+            cursor: pointer;
+
+            &:hover{
+                opacity: 1;
+            }
+            .escudo{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+    
+            .nome{
+                padding: 5px;
+                font-size: .7rem;
+                color: #fff;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.selecionado{
+    opacity: 1;
+}

@@ -11,42 +11,37 @@ export class RodadasAnterioresComponent implements OnInit {
   constructor(private campeonatoService: CampeonatoService) { }
 
   ngOnInit(): void {
-    this.carregarService();
+    this.carregarStorage();
+    this.carregarPartidasAnteriores(this.idRodada);
   }
 
   partidas: any = [];
-  rodada: string;
-  campeonato: string;
-  aviso: string;
+  idCampeonato: number;
+  idRodada: number;
+  nomeCampeonato: string;
+  numPartidaSelecionada: number;
+  partidaSelecionada: any = [];
+  numPartidas: any = [];
+  rodadaSelecionada: number;
 
-  definirCampeonato(){
-    this.campeonato = localStorage.getItem('campeonato')
+  carregarStorage(){
+    this.idCampeonato = parseInt(JSON.parse(localStorage.getItem('id') || '{}'));
+    this.idRodada = parseInt(JSON.parse(localStorage.getItem('rodada') || '{}'));
+    this.nomeCampeonato = localStorage.getItem('campeonato');
   }
 
-  definirRodada(numeroRodada: number){
-    this.rodada = numeroRodada + '° Rodada' 
+  selecionarPartida(): number{
+    return this.numPartidaSelecionada = this.idRodada -2;
   }
 
-  carregarService(){
-    try{
-      this.carregarPartidasAnteriores();
-
-    } catch(e){
-      console.log(e)
-    } finally{
-      this.aviso = 'Rodada inexistente';
-      console.log(this.aviso)
-    }
-  }
-
-  carregarPartidasAnteriores(){
-    let id = JSON.parse(localStorage.getItem('id') || '{}');
-    id = parseInt(id);
-    this.campeonatoService.carregarPartidasAnteriores(id).subscribe({
+  carregarPartidasAnteriores(id: number) {
+    this.campeonatoService.carregarPartidasAnteriores(this.idCampeonato).subscribe({
       next: (res) => {
         this.partidas = res;
-        this.partidas = this.partidas.partidas['fase-unica'];
-        this.carregarRodadas(15);
+        this.partidas = Object.values(this.partidas.partidas['fase-unica']);
+        this.partidaSelecionada = this.partidas[id -2];
+        this.rodadaSelecionada = this.idRodada -1;
+        this.carregarNumPartidas();
       },
       error: (er) => {
         console.log(er);
@@ -54,10 +49,17 @@ export class RodadasAnterioresComponent implements OnInit {
     })
   }
 
-  carregarRodadas(id: number){
-    this.partidas = this.partidas[id + 'a-rodada']
-    this.definirRodada(id);
-    this.definirCampeonato();
+  carregarRodada(id:number){
+    this.partidaSelecionada = this.partidas[id-1];
+  } 
+
+  carregarNumPartidas(){
+    for(var i = 1; i < 39; i++){
+      this.numPartidas[i-1] = i;
+    }
   }
+
+
+
 
 }

@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EquipesComponent } from './components/equipes/equipes.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AoVivoComponent } from './pages/ao-vivo/ao-vivo.component';
 import { ArtilhariaComponent } from './pages/artilharia/artilharia.component';
+import { EquipeComponent } from './pages/equipe/equipe.component';
 import { HomeComponent } from './pages/home/home.component';
+import { PartidasAnterioresComponent } from './pages/partidas-anteriores/partidas-anteriores.component';
 import { PartidasComponent } from './pages/partidas/partidas.component';
+import { ProximasPartidasComponent } from './pages/proximas-partidas/proximas-partidas.component';
 import { RodadasAnterioresComponent } from './pages/rodadas-anteriores/rodadas-anteriores.component';
 import { TabelaComponent } from './pages/tabela/tabela.component';
 
@@ -41,7 +45,22 @@ const routes: Routes = [
     path: 'rodadas-anteriores',
     component: RodadasAnterioresComponent,
     canLoad: [AuthGuard]
-  }
+  },
+  {
+    path: 'equipe',
+    component: EquipeComponent,
+    children: [
+      {
+        path: 'proximas/:id',
+        component: ProximasPartidasComponent,
+      },
+      {
+        path: 'anteriores/:id',
+        component: PartidasAnterioresComponent
+      }
+    ],
+    canLoad: [AuthGuard]
+  },
 ];
 
 @NgModule({

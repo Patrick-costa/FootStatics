@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import swal from 'sweetalert2';
 
@@ -19,9 +19,10 @@ export class PainelEsquerdoComponent implements OnInit {
   }
 
   campeonato!: string;
-
   rota: any;
-
+  menu: boolean = false;
+  contador: number = 0;
+  
   redirecionar() {
     let storage = localStorage.getItem('campeonato');
     if (!storage) {

@@ -5,6 +5,7 @@ import { Campeonato } from '../models/campeonato';
 import { CampeonatoApi } from '../models/api/campeonatoApi';
 import { TabelaApi } from '../models/api/tabelaApi';
 import { ArtilhariaApi } from '../models/api/artilhariaApi';
+import { PartidasApi } from '../models/api/partidasApi';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,13 @@ export class CampeonatoService {
 
   carregarPartidasAnteriores(id: number){
     return this.httpClient.get<[]>(`${environment.url}/campeonatos/${id}/partidas`)
+  }
+
+  carregarProximasPartidas(idEquipe: number){
+    return this.httpClient.get<PartidasApi[]>(`${environment.url}/times/${idEquipe}/partidas/proximas`)
+  }
+
+  carregarPartidasAnterioresEquipe(idEquipe: number){
+    return this.httpClient.get<PartidasApi[]>(`${environment.url}/times/${idEquipe}/partidas/anteriores`)
   }
 }

@@ -16,7 +16,6 @@ export class ArtilhariaComponent implements OnInit {
   }
   
   artilharia: ArtilhariaApi[] = [];
-  i: number;
   filtro: string = '';
 
   carregarArtilharia(){
