@@ -19,7 +19,7 @@ export class ProximasPartidasComponent implements OnInit {
   proximasPartidas: any[];
   partidasAnteriores: any[];
   campeonatosTime: any[];
-  filtro: string = 'campeonato-brasileiro';
+  filtro: string = '';
 
 
   ngOnInit(): void {
@@ -27,10 +27,15 @@ export class ProximasPartidasComponent implements OnInit {
     this.carregarProximasPartidas();
   }
 
+  definirCampeonatoAtual(campeonato: any){
+    this.filtro = campeonato[0];
+  }
+
   carregarProximasPartidas() {
     this.campeonatoService.carregarProximasPartidas(this.id).subscribe({
       next: (res) => {
         this.campeonatosTime = Object.keys(res);
+        this.definirCampeonatoAtual(this.campeonatosTime);
         res = Object.values(res);
         this.proximasPartidas = res;
       },

@@ -9,6 +9,10 @@ export class PartidasPipe implements PipeTransform {
     if (filtro) {
       filtro = filtro.toLowerCase();
       console.log(filtro);
+
+      value.sort((a,b) => {
+        return b.data_realizacao_iso < a.data_realizacao_iso ? -1 : a.data_realizacao_iso > b.data_realizacao_iso ? 1 : 0;
+      })
       return value.filter(a =>
         a.campeonato.slug.toLowerCase().indexOf(filtro) >= 0
       );

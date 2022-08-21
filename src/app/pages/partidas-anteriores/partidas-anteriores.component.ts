@@ -24,14 +24,20 @@ export class PartidasAnterioresComponent implements OnInit {
     this.carregarPartidasAnteriores();
   }
 
+  definirCampeonatoAtual(campeonato: any){
+    this.filtro = campeonato[0];
+  }
+
   carregarPartidasAnteriores() {
     this.campeonatoService.carregarPartidasAnterioresEquipe(this.id).subscribe({
       next: (res) => {
         this.campeonatosTime = Object.keys(res);
-        console.log(this.campeonatosTime)
+        this.definirCampeonatoAtual(this.campeonatosTime);
         res = Object.values(res);
         this.partidasAnteriores = res;
-        console.log(this.partidasAnteriores)
+        console.log(this.partidasAnteriores);
+        
+
       },
       error: (e) => {
         console.log(e)
