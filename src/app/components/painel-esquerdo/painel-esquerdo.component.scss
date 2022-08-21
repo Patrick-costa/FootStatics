@@ -6,12 +6,12 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
 
 @keyframes moverMenu {
     0% {
-        right: 500px;
+        width: 0px;
         opacity: 0;
     }
 
     100% {
-        right: 0px;
+        width: 100px;
         opacity: 1;
     }
 }
@@ -20,14 +20,15 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
 :host {
     display: flex;
     app-equipes {
+        width: 0px;
         display: none;
     }
 
     .mostrar-menu {
-        position: relative;
-        display: inline;
-        animation-duration: 1;
-        animation: moverMenu 1s;
+        display: initial;
+        width: 100px;
+        animation-duration: .5s;
+        animation: moverMenu .5s;
         animation-name: moverMenu;
     }
 

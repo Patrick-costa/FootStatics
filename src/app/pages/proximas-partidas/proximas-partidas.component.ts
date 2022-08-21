@@ -19,7 +19,7 @@ export class ProximasPartidasComponent implements OnInit {
   proximasPartidas: any[];
   partidasAnteriores: any[];
   campeonatosTime: any[];
-  filtro: string = '';
+  filtro: string = 'campeonato-brasileiro';
 
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class ProximasPartidasComponent implements OnInit {
     this.carregarProximasPartidas();
   }
 
-  carregarProximasPartidas(){
+  carregarProximasPartidas() {
     this.campeonatoService.carregarProximasPartidas(this.id).subscribe({
       next: (res) => {
         this.campeonatosTime = Object.keys(res);
@@ -40,8 +40,12 @@ export class ProximasPartidasComponent implements OnInit {
     })
   }
 
-  converterNomes(nome: string){
-    switch(nome){
+  escolherFiltro(opcao: string) {
+    this.filtro = opcao;
+  }
+
+  converterNomes(nome: string) {
+    switch (nome) {
       case 'campeonato-brasileiro':
         return 'Brasileirão Serie A';
       case 'copa-libertadores-da-america':
@@ -50,6 +54,30 @@ export class ProximasPartidasComponent implements OnInit {
         return 'Copa do Brasil';
       case 'campeonato-brasileiro-serie-b':
         return 'Brasileirão Serie B';
+      case 'copa-sulamericana':
+        return 'Copa Sulamericana';
+      case 'campeonato-baiano':
+        return 'Campeonato Baiano';
+      case 'campeonato-brasileiro-serie-c':
+        return 'Brasileirão Serie C';
+      case 'campeonato-brasileiro-serie-d':
+        return 'Brasileirão Serie D';
+      case 'campeonato-carioca':
+        return 'Campeonato Carioca';
+      case 'campeonato-catarinense':
+        return 'Campeonato Catarinense';
+      case 'campeonato-cearense':
+        return 'Campeonato Cearense';
+      case 'campeonato-gaucho':
+        return 'Campeonato Gaucho';
+      case 'campeonato-goiano':
+        return 'Campeonato Goiano';
+      case 'campeonato-mineiro':
+        return 'Campeonato Mineiro';
+      case 'campeonato-paulista':
+        return 'Campeonato Paulista';
+      case 'copa-do-nordeste':
+        return 'Copa do Nordeste';
     }
     return '';
   }

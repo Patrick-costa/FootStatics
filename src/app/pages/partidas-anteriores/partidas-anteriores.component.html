@@ -1,18 +1,17 @@
 <div class="pagina">
     <div class="botoes">
         <div>
-            <button [routerLink]="['/equipe/anteriores',id]"><span>Partidas Anteriores</span></button>
+            <button class="selecionado" [routerLink]="['/equipe/anteriores',id]"><span>Partidas Anteriores</span></button>
             <button [routerLink]="['/equipe/proximas',id]"><span>Proximas Partidas</span></button>
         </div>
     
         <div>
-            <button (click)="filtro = ''" *ngIf="campeonatosTime.length > 1"><span>Todas as Competições</span></button>
-            <button *ngFor="let competicoes of campeonatosTime" (click)="filtro = competicoes"><span>{{converterNomes(competicoes)}}</span></button>
+            <button *ngFor="let competicoes of campeonatosTime" (click)="escolherFiltro(competicoes)" [class.selecionado]="filtro == competicoes" ><span>{{converterNomes(competicoes)}}</span></button>
         </div>
     </div>
     
     <div class="jogos"  *ngFor="let partida of partidasAnteriores">
-        <app-painel-jogos *ngFor="let dados of partida" [nomeCampeonato]="dados.campeonato.nome"
+        <app-painel-jogos *ngFor="let dados of (partida | partidas : filtro)" [nomeCampeonato]="dados.campeonato.nome"
             [data]="dados.data_realizacao" [hora]="dados.hora_realizacao"
             [abreviacaoMandante]="dados.time_mandante.sigla" [abreviacaoVisitante]="dados.time_visitante.sigla"
             [escudoMandante]="dados.time_mandante.escudo" [escudoVisitante]="dados.time_visitante.escudo"
