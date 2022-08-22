@@ -39,7 +39,7 @@
 
             </app-botao-menu>
 
-            <app-botao-menu [descricao]="'Todas as Partidas'" (click)="botaoClick('Artistas')"
+            <app-botao-menu [descricao]="'Todas as Partidas'" (click)="validarAcesso()"
                 routerLink="/rodadas-anteriores">
                 <svg width="25" height="25" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -48,7 +48,7 @@
                 </svg>
             </app-botao-menu>
 
-            <app-botao-menu [descricao]="'Equipes'" (click)="menu = true"
+            <app-botao-menu [descricao]="'Equipes'" (click)="menu = true" (click)="validarAcesso()"
                 [class.selecionado]="rota == 'EquipeComponent'">
                 <svg width="25" height="25" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path

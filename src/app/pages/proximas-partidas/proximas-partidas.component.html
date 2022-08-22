@@ -11,7 +11,7 @@
     </div>
     
     <div class="jogos" *ngFor="let partida of proximasPartidas">
-        <app-painel-jogos *ngFor="let dados of (partida | partidas : filtro)" [nomeCampeonato]="dados.campeonato.nome"
+        <app-painel-jogos *ngFor="let dados of (partida | proximasPartidas : filtro)" [nomeCampeonato]="dados.campeonato.nome"
             [data]="dados.data_realizacao" [hora]="dados.hora_realizacao"
             [abreviacaoMandante]="dados.time_mandante.sigla" [abreviacaoVisitante]="dados.time_visitante.sigla"
             [escudoMandante]="dados.time_mandante.escudo" [escudoVisitante]="dados.time_visitante.escudo"

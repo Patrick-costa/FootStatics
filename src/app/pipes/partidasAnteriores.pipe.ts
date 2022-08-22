@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'partidas'
+  name: 'partidasAnteriores'
 })
 export class PartidasPipe implements PipeTransform {
 

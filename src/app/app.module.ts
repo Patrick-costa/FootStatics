@@ -23,7 +23,8 @@ import { EquipesComponent } from './components/equipes/equipes.component';
 import { EquipeComponent } from './pages/equipe/equipe.component';
 import { ProximasPartidasComponent } from './pages/proximas-partidas/proximas-partidas.component';
 import { PartidasAnterioresComponent } from './pages/partidas-anteriores/partidas-anteriores.component';
-import { PartidasPipe } from './pipes/partidas.pipe';
+import { PartidasPipe } from './pipes/partidasAnteriores.pipe';
+import { ProximasPartidasPipe } from './pipes/proximasPartidas.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { PartidasPipe } from './pipes/partidas.pipe';
     ProximasPartidasComponent,
     PartidasAnterioresComponent,
     PartidasPipe,
+    ProximasPartidasPipe
   ],
   imports: [
     BrowserModule,
