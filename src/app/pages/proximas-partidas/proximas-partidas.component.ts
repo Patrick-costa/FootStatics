@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { PartidasApi } from 'src/app/models/api/partidasApi';
 import { CampeonatoService } from 'src/app/services/campeonato-service.service';
 
@@ -8,7 +9,7 @@ import { CampeonatoService } from 'src/app/services/campeonato-service.service';
   templateUrl: './proximas-partidas.component.html',
   styleUrls: ['./proximas-partidas.component.scss']
 })
-export class ProximasPartidasComponent implements OnInit {
+export class ProximasPartidasComponent implements OnInit, OnDestroy {
 
   constructor(
     private ActivatedRoute: ActivatedRoute,
@@ -20,11 +21,15 @@ export class ProximasPartidasComponent implements OnInit {
   partidasAnteriores: any[];
   campeonatosTime: any[];
   filtro: string = '';
-
+  subs: Subscription[] = [];
 
   ngOnInit(): void {
     this.id = this.ActivatedRoute.snapshot.params['id'];
     this.carregarProximasPartidas();
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe())
   }
 
   definirCampeonatoAtual(campeonato: any){
@@ -32,7 +37,7 @@ export class ProximasPartidasComponent implements OnInit {
   }
 
   carregarProximasPartidas() {
-    this.campeonatoService.carregarProximasPartidas(this.id).subscribe({
+    const subs = this.campeonatoService.carregarProximasPartidas(this.id).subscribe({
       next: (res) => {
         this.campeonatosTime = Object.keys(res);
         this.definirCampeonatoAtual(this.campeonatosTime);
@@ -42,7 +47,9 @@ export class ProximasPartidasComponent implements OnInit {
       error: (e) => {
         console.log(e);
       }
-    })
+    });
+
+    this.subs.push(subs);
   }
 
   escolherFiltro(opcao: string) {

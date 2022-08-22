@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CampeonatoService } from 'src/app/services/campeonato-service.service';
 
 @Component({
@@ -6,7 +7,7 @@ import { CampeonatoService } from 'src/app/services/campeonato-service.service';
   templateUrl: './partidas.component.html',
   styleUrls: ['./partidas.component.scss']
 })
-export class PartidasComponent implements OnInit {
+export class PartidasComponent implements OnInit, OnDestroy {
 
   constructor(private campeonatoService: CampeonatoService) { }
 
@@ -14,8 +15,13 @@ export class PartidasComponent implements OnInit {
     this.carregarPartidas();
   }
 
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe())
+  }
+
   partidas:any = [];
   rodada: string;
+  subs: Subscription[] = [];
 
   carregarPartidas() {
     let id = JSON.parse(localStorage.getItem('id') || '{}');
@@ -23,7 +29,7 @@ export class PartidasComponent implements OnInit {
     let rodada = JSON.parse(localStorage.getItem('rodada') || '{}');
     rodada = parseInt(rodada);
 
-    this.campeonatoService.carregarPartidas(id, rodada).subscribe({
+    const sub = this.campeonatoService.carregarPartidas(id, rodada).subscribe({
       next: (res) => {
         this.partidas = res;
         this.rodada = this.partidas.nome;
@@ -32,7 +38,9 @@ export class PartidasComponent implements OnInit {
         console.log(er);
       }
 
-    })
+    });
+
+    this.subs.push(sub)
   }
 
 }

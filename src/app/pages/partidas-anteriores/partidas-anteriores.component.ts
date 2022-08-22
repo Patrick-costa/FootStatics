@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { CampeonatoService } from 'src/app/services/campeonato-service.service';
 @Component({
   selector: 'app-partidas-anteriores',
   templateUrl: './partidas-anteriores.component.html',
   styleUrls: ['./partidas-anteriores.component.scss']
 })
-export class PartidasAnterioresComponent implements OnInit {
+export class PartidasAnterioresComponent implements OnInit, OnDestroy {
 
   constructor(
     private ActivatedRoute: ActivatedRoute,
@@ -18,10 +19,15 @@ export class PartidasAnterioresComponent implements OnInit {
   partidasAnteriores: any[];
   campeonatosTime: any[];
   filtro: string = 'campeonato-brasileiro';
+  subs: Subscription[] = [];
 
   ngOnInit(): void {
     this.id = this.ActivatedRoute.snapshot.params['id'];
     this.carregarPartidasAnteriores();
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe())
   }
 
   definirCampeonatoAtual(campeonato: any){
@@ -29,7 +35,7 @@ export class PartidasAnterioresComponent implements OnInit {
   }
 
   carregarPartidasAnteriores() {
-    this.campeonatoService.carregarPartidasAnterioresEquipe(this.id).subscribe({
+    const sub = this.campeonatoService.carregarPartidasAnterioresEquipe(this.id).subscribe({
       next: (res) => {
         this.campeonatosTime = Object.keys(res);
         this.definirCampeonatoAtual(this.campeonatosTime);
@@ -42,7 +48,9 @@ export class PartidasAnterioresComponent implements OnInit {
       error: (e) => {
         console.log(e)
       }
-    })
+    });
+
+    this.subs.push(sub);
   }
 
   escolherFiltro(opcao: string){

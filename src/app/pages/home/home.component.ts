@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CampeonatoParaCampeonato } from 'src/app/Common/campeonatoHelper';
 import { Campeonato } from 'src/app/models/campeonato';
 import { CampeonatoService } from 'src/app/services/campeonato-service.service';
@@ -11,7 +12,7 @@ import { CampeonatoService } from 'src/app/services/campeonato-service.service';
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(private http: HttpClient,
     private campeonatoService: CampeonatoService) { }
@@ -20,13 +21,20 @@ export class HomeComponent implements OnInit {
     this.carregarCampeonatos();
   }
 
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe())
+  }
+
   campeonatos!: Campeonato[];
   teste!: Campeonato;
+  subs: Subscription[] = [];
 
   carregarCampeonatos() {
-    this.campeonatoService.carregarCampeonatos().subscribe(x => {
+   const sub =  this.campeonatoService.carregarCampeonatos().subscribe(x => {
       this.campeonatos = x.map(y => CampeonatoParaCampeonato(y));
-    })
+    });
+
+    this.subs.push(sub);
   }
 
   escolherCampeonato(id: number, campeonato: string, rodada: number){

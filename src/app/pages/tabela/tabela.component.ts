@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { TabelaApi } from 'src/app/models/api/tabelaApi';
 import { CampeonatoService } from 'src/app/services/campeonato-service.service';
 
@@ -7,7 +8,7 @@ import { CampeonatoService } from 'src/app/services/campeonato-service.service';
   templateUrl: './tabela.component.html',
   styleUrls: ['./tabela.component.scss']
 })
-export class TabelaComponent implements OnInit {
+export class TabelaComponent implements OnInit, OnDestroy {
 
   constructor(private campeonatoService: CampeonatoService) { }
 
@@ -19,8 +20,13 @@ export class TabelaComponent implements OnInit {
     },200)
   }
 
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe())
+  }
+
   id!: number;
   tabela!: TabelaApi[];
+  subs: Subscription[] = [];
 
   capturarIdCampeonato(){
     let local = JSON.parse(localStorage.getItem('id') || '{}');
@@ -28,14 +34,16 @@ export class TabelaComponent implements OnInit {
   }
 
   carregarTabela(){
-    this.campeonatoService.carregarTabela(this.id).subscribe({
+    const sub = this.campeonatoService.carregarTabela(this.id).subscribe({
       next: (res) => {
         this.tabela = res;
       },
       error: (er) => {
         console.log(er);
       }
-    })
+    });
+
+    this.subs.push(sub)
   }
 
 
