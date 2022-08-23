@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.carregarCampeonatos();
-    this.redirecionar();
   }
 
   ngOnDestroy(): void {
@@ -46,10 +45,5 @@ export class HomeComponent implements OnInit, OnDestroy {
     localStorage.setItem('rodada', rodada.toString())
   }
 
-  redirecionar(){
-    let id = localStorage.getItem('id');
-    if(id){
-      this.route.navigateByUrl('partidas');
-    }
-  }
+
 }
