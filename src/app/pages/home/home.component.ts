@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CampeonatoParaCampeonato } from 'src/app/Common/campeonatoHelper';
 import { Campeonato } from 'src/app/models/campeonato';
@@ -15,10 +16,12 @@ import { CampeonatoService } from 'src/app/services/campeonato-service.service';
 export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(private http: HttpClient,
-    private campeonatoService: CampeonatoService) { }
+    private campeonatoService: CampeonatoService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.carregarCampeonatos();
+    this.redirecionar();
   }
 
   ngOnDestroy(): void {
@@ -41,5 +44,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     localStorage.setItem('id', id.toString());
     localStorage.setItem('campeonato', campeonato);
     localStorage.setItem('rodada', rodada.toString())
+  }
+
+  redirecionar(){
+    let id = localStorage.getItem('id');
+    if(id){
+      this.route.navigateByUrl('partidas');
+    }
   }
 }

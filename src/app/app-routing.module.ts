@@ -15,7 +15,7 @@ import { TabelaComponent } from './pages/tabela/tabela.component';
 const routes: Routes = [
   {
     path: '',
-    component: PartidasComponent
+    component: HomeComponent
   },
   {
     path: 'home',
