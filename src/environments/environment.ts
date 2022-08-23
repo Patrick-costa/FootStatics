@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   url: 'https://api.api-futebol.com.br/v1',
   token_test: 'test_7a53fa18aa942a4f445eb28c40d88c',
-  token_live: 'live_8b0d6c2057172928052dcb3538fbc9',
+  token_live: '',
 };
 
 /*
